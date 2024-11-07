@@ -3,7 +3,7 @@ package br.edu.famper.api_sistemacinema.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "tbl_ingresso")

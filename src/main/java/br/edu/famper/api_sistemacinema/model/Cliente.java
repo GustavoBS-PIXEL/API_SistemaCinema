@@ -30,7 +30,7 @@ public class Cliente {
     private String telefone;
 
     @Column(name = "data_nas")
-    private Date nota;
+    private Date data_nas;
 
     @OneToMany(mappedBy = "cliente", targetEntity = Ingresso.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore

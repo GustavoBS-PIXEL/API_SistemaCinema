@@ -16,14 +16,14 @@ public class SalaCinema {
     @Column(name = "sala_id")
     private Long sala;
 
-    @Column(name = "nome", length = 100)
+    @Column(name = "nome", length = 10)
     private String nome;
 
-    @Column(name = "tamanho", length = 300)
-    private String descricao;
+    @Column(name = "tamanho", length = 30)
+    private String tamanho;
 
-    @Column(name = "num_cadeiras", length = 100)
-    private String genero;
+    @Column(name = "num_cadeiras", length = 10)
+    private String num_cadeiras;
 
     @OneToMany(mappedBy = "sala", targetEntity = Sessao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
