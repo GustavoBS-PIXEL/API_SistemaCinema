@@ -56,7 +56,7 @@ public class ClienteController {
     })
     public ResponseEntity<ClienteDto> getClienteById(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
         log.info("Buscando clientee por id: {}", id);
-        return ResponseEntity.ok().body(clienteeService.getClienteById(id));
+        return ResponseEntity.ok().body(clienteService.getClienteById(id));
     }
 
     @PostMapping
