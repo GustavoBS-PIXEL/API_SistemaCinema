@@ -36,7 +36,7 @@ public class ClienteDto {
     private String telefone;
 
     @Schema(description = "Data de nascimento do cliente",
-            example = "05/05/1999",
+            example = "1999-05-05",
             title = "data de nascimento")
     private Date data_nas;
 }

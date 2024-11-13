@@ -30,7 +30,7 @@ public class IngressoDto {
     private String num_cadeira;
 
     @Schema(description = "Data de compra do ingresso",
-            example = "12/12/2012",
+            example = "2012-12-12",
             title = "data de compra")
     private Date data_compra;
 }

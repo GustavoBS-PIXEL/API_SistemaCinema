@@ -42,7 +42,7 @@ public class FilmeDto {
     private Double nota;
 
     @Schema(description = "Data de lançamento do filme",
-            example = "09/09/1999",
+            example = "1999-09-09",
             title = "data de lançamento")
     private Date data_lanc;
 }

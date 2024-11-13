@@ -25,7 +25,7 @@ public class SessaoDto {
     private SalaCinema salaCinema;
 
     @Schema(description = "Data da sessão",
-            example = "12/12/2012",
+            example = "2011-11-11",
             title = "data")
     private Date data;
 
