@@ -22,3 +22,5 @@ Substitua:
 - "987456" pela senha correspondente.
 
 Com essas configurações, você estará pronto para utilizar a API_SistemaCinema.
+
+Para testar voce pode estar utilizando swagger.
