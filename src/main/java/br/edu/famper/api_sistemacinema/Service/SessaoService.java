@@ -1,7 +1,12 @@
 package br.edu.famper.api_sistemacinema.Service;
 
 import br.edu.famper.api_sistemacinema.dto.SessaoDto;
+import br.edu.famper.api_sistemacinema.exception.ResourceNotFoundException;
+import br.edu.famper.api_sistemacinema.model.Filme;
+import br.edu.famper.api_sistemacinema.model.SalaCinema;
 import br.edu.famper.api_sistemacinema.model.Sessao;
+import br.edu.famper.api_sistemacinema.repository.FilmeRepository;
+import br.edu.famper.api_sistemacinema.repository.SalacinemaRepository;
 import br.edu.famper.api_sistemacinema.repository.SessaoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +22,12 @@ public class SessaoService {
 
     @Autowired
     private SessaoRepository sessaoRepository;
+
+    @Autowired
+    private FilmeRepository filmeRepository;
+
+    @Autowired
+    private SalacinemaRepository salaCinemaRepository;
 
     public List<SessaoDto> getAllSessao(){
         return sessaoRepository
@@ -46,14 +57,23 @@ public class SessaoService {
     }
 
     // inserir um sessao
-    public Sessao saveSessao(SessaoDto sessaoDto){
+    public Sessao saveSessao(SessaoDto sessaoDto) throws ResourceNotFoundException {
         Sessao sessao = new Sessao();
-        sessao.setFilme(sessaoDto.getFilme());
-        sessao.setSala(sessaoDto.getSalaCinema());
+
+        Filme filme = filmeRepository.findById(sessaoDto.getFilme().getCodigo())
+                .orElseThrow(() -> new ResourceNotFoundException("Filme não encontrado com id: " + sessaoDto.getFilme().getCodigo()));
+
+        SalaCinema sala = salaCinemaRepository.findById(sessaoDto.getSalaCinema().getSala())
+                .orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada com id: " + sessaoDto.getSalaCinema().getSala()));
+
+        sessao.setFilme(filme);
+        sessao.setSala(sala);
         sessao.setData(sessaoDto.getData());
         sessao.setHora(sessaoDto.getHora());
+
         return sessaoRepository.save(sessao);
     }
+
 
     // editar um sessao
     public SessaoDto editSessao(Long id, SessaoDto sessaoDto){

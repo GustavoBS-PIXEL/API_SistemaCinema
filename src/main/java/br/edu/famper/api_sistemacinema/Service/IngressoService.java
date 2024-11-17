@@ -1,8 +1,11 @@
 package br.edu.famper.api_sistemacinema.Service;
 
 import br.edu.famper.api_sistemacinema.dto.IngressoDto;
-import br.edu.famper.api_sistemacinema.model.Ingresso;
+import br.edu.famper.api_sistemacinema.exception.ResourceNotFoundException;
+import br.edu.famper.api_sistemacinema.model.*;
+import br.edu.famper.api_sistemacinema.repository.ClienteRepository;
 import br.edu.famper.api_sistemacinema.repository.IngressoRepository;
+import br.edu.famper.api_sistemacinema.repository.SessaoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,12 @@ public class IngressoService {
 
     @Autowired
     private IngressoRepository ingressoRepository;
+
+    @Autowired
+    private SessaoRepository sessaoRepository;
+
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     public List<IngressoDto> getAllIngresso(){
         return ingressoRepository
@@ -45,13 +54,20 @@ public class IngressoService {
                 .build();
     }
 
-    // inserir um ingresso
-    public Ingresso saveIngresso(IngressoDto ingressoDto){
+    public Ingresso saveIngresso(IngressoDto ingressoDto) throws ResourceNotFoundException {
         Ingresso ingresso = new Ingresso();
-        ingresso.setSessao(ingressoDto.getSessao());
-        ingresso.setCliente(ingressoDto.getCliente());
+
+        Sessao sessao = sessaoRepository.findById(ingressoDto.getSessao().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Filme não encontrado com id: " + ingressoDto.getSessao().getId()));
+
+        Cliente cliente = clienteRepository.findById(ingressoDto.getCliente().getCodigo())
+                .orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada com id: " + ingressoDto.getCliente().getCodigo()));
+
+        ingresso.setSessao(sessao);
+        ingresso.setCliente(cliente);
         ingresso.setNum_cadeira(ingressoDto.getNum_cadeira());
         ingresso.setData_compra(ingressoDto.getData_compra());
+
         return ingressoRepository.save(ingresso);
     }
 
@@ -82,5 +98,4 @@ public class IngressoService {
             return false;
         }
     }
-
 }
