@@ -24,3 +24,5 @@ Substitua:
 Com essas configurações, você estará pronto para utilizar a API_SistemaCinema.
 
 Para testar voce pode estar utilizando swagger.
+
+A ordem para inserir os dados nas tabelas são respectivamente Cliente, Filme, SalaCinema, Sessão e Ingresso.
