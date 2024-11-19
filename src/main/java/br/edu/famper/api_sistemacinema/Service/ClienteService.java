@@ -57,7 +57,6 @@ public class ClienteService {
         cliente.setData_nas(clienteDto.getData_nas());
         return clienteRepository.save(cliente);
     }
-
     // editar um cliente
     public ClienteDto editCliente(Long id, ClienteDto clienteDto){
         Cliente cliente = clienteRepository.findById(id).orElseThrow();
@@ -76,7 +75,6 @@ public class ClienteService {
                 .data_nas(clienteEdited.getData_nas())
                 .build();
     }
-
     // apagar um cliente
     public boolean deleteCliente(Long id){
         try{
@@ -87,5 +85,4 @@ public class ClienteService {
             return false;
         }
     }
-
 }

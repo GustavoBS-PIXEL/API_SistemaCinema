@@ -66,7 +66,6 @@ public class SalacinemaService {
                 .num_cadeiras(salacinemaEdited.getNum_cadeiras())
                 .build();
     }
-
     // apagar um salacinema
     public boolean deleteSalacinema(Long id){
         try{
@@ -77,5 +76,4 @@ public class SalacinemaService {
             return false;
         }
     }
-
 }

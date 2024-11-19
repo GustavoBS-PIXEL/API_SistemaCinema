@@ -87,7 +87,6 @@ public class IngressoService {
                 .data_compra(ingressoEdited.getData_compra())
                 .build();
     }
-
     // apagar um ingresso
     public boolean deleteIngresso(Long id){
         try{
@@ -98,4 +97,5 @@ public class IngressoService {
             return false;
         }
     }
+
 }

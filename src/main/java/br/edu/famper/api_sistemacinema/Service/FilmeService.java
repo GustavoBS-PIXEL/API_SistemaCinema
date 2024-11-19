@@ -81,7 +81,6 @@ public class FilmeService {
                 .data_lanc(filmeEdited.getDatalancamento())
                 .build();
     }
-
     // apagar um filme
     public boolean deleteFilme(Long id){
         try{
@@ -92,5 +91,4 @@ public class FilmeService {
             return false;
         }
     }
-
 }

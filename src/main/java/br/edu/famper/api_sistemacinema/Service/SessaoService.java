@@ -74,7 +74,6 @@ public class SessaoService {
         return sessaoRepository.save(sessao);
     }
 
-
     // editar um sessao
     public SessaoDto editSessao(Long id, SessaoDto sessaoDto){
         Sessao sessao = sessaoRepository.findById(id).orElseThrow();
@@ -91,7 +90,6 @@ public class SessaoService {
                 .hora(sessaoEdited.getHora())
                 .build();
     }
-
     // apagar um sessao
     public boolean deleteSessao(Long id){
         try{
@@ -102,5 +100,4 @@ public class SessaoService {
             return false;
         }
     }
-
 }

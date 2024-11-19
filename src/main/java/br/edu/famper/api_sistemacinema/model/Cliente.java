@@ -35,5 +35,4 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente", targetEntity = Ingresso.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Ingresso> ingressos;
-
 }

@@ -28,5 +28,4 @@ public class Ingresso {
 
     @Column(name = "data_compra")
     private Date data_compra;
-
 }
