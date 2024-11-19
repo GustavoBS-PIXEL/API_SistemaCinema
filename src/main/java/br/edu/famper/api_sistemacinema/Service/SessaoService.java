@@ -60,11 +60,11 @@ public class SessaoService {
     public Sessao saveSessao(SessaoDto sessaoDto) throws ResourceNotFoundException {
         Sessao sessao = new Sessao();
 
-        Filme filme = filmeRepository.findById(sessaoDto.getFilme().getCodigo())
-                .orElseThrow(() -> new ResourceNotFoundException("Filme não encontrado com id: " + sessaoDto.getFilme().getCodigo()));
+        Filme filme = filmeRepository.findById(sessaoDto.getFilme().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Filme não encontrado com id: " + sessaoDto.getFilme().getId()));
 
-        SalaCinema sala = salaCinemaRepository.findById(sessaoDto.getSalaCinema().getSala())
-                .orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada com id: " + sessaoDto.getSalaCinema().getSala()));
+        SalaCinema sala = salaCinemaRepository.findById(sessaoDto.getSalaCinema().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada com id: " + sessaoDto.getSalaCinema().getId()));
 
         sessao.setFilme(filme);
         sessao.setSala(sala);

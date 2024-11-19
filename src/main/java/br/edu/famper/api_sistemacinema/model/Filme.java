@@ -15,7 +15,7 @@ public class Filme {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "filme_id")
-    private Long codigo;
+    private Long id;
 
     @Column(name = "nome", length = 100)
     private String nome;

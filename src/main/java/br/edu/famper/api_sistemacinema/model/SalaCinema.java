@@ -14,7 +14,7 @@ public class SalaCinema {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "sala_id")
-    private Long sala;
+    private Long id;
 
     @Column(name = "nome", length = 10)
     private String nome;

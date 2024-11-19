@@ -60,8 +60,8 @@ public class IngressoService {
         Sessao sessao = sessaoRepository.findById(ingressoDto.getSessao().getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Filme não encontrado com id: " + ingressoDto.getSessao().getId()));
 
-        Cliente cliente = clienteRepository.findById(ingressoDto.getCliente().getCodigo())
-                .orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada com id: " + ingressoDto.getCliente().getCodigo()));
+        Cliente cliente = clienteRepository.findById(ingressoDto.getCliente().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada com id: " + ingressoDto.getCliente().getId()));
 
         ingresso.setSessao(sessao);
         ingresso.setCliente(cliente);

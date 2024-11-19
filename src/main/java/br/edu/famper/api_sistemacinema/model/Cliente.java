@@ -15,7 +15,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "Cliente_id")
-    private Long codigo;
+    private Long id;
 
     @Column(name = "nome", length = 250)
     private String nome;

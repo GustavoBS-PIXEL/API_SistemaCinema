@@ -13,7 +13,7 @@ public class Ingresso {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ingresso_id")
-    private Long codigo;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "sessao_id")
