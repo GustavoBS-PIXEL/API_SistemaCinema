@@ -38,6 +38,7 @@ Abaixo scripts que podem ser usados para inserir dados nas tabelas do banco de d
 "telefone": "(11) 9 1234-5678",
 "data_nas": "1990-02-12"
 }
+
 - Tabela Filme: http://localhost:8080/api/siscinema/filme
 {
     "id": 123,
@@ -48,6 +49,7 @@ Abaixo scripts que podem ser usados para inserir dados nas tabelas do banco de d
     "nota": 9.5,
     "datalancamento": "2024-03-14"
 }
+
 - Tabela SalaCinema: http://localhost:8080/api/siscinema/salacinema
 {
 "id": 123,
@@ -55,6 +57,7 @@ Abaixo scripts que podem ser usados para inserir dados nas tabelas do banco de d
 "tamanho": "20m²",
 "num_cadeiras": "50"
 }
+
 - Tabela Sessao: http://localhost:8080/api/siscinema/sessao
 {
     "id": 123,
@@ -63,7 +66,8 @@ Abaixo scripts que podem ser usados para inserir dados nas tabelas do banco de d
     "data": "2024-03-15",
     "hora": "19:00:00"
 }
-= Tabela Ingresso: http://localhost:8080/api/siscinema/ingresso
+
+- Tabela Ingresso: http://localhost:8080/api/siscinema/ingresso
 {
 "id": 123,
 "sessao": {"id": 1},
